@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Biotrace</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<div class="bg"></div>
+
+<div class="container">
+    <h1>🧬 Biotrace</h1>
+    <p>AI Blood Group Detection</p>
+
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+        
+        <label class="upload-box">
+            Upload Fingerprint
+            <input type="file" name="file" id="fileInput" required>
+        </label>
+
+        <!-- Image Preview -->
+        <img id="preview" class="preview" style="display:none;">
+
+        <button type="submit">Predict</button>
+
+        <!-- Loader -->
+        <div id="loader" style="display:none;">
+            <div class="spinner"></div>
+            <p>Analyzing fingerprint...</p>
+        </div>
+
+    </form>
+</div>
+
+<script>
+const fileInput = document.getElementById("fileInput");
+const preview = document.getElementById("preview");
+const form = document.querySelector("form");
+const loader = document.getElementById("loader");
+
+// Preview
+fileInput.addEventListener("change", function() {
+    const file = this.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+            preview.style.display = "block";
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+// Loader
+form.addEventListener("submit", function() {
+    loader.style.display = "block";
+});
+</script>
+
+</body>
+</html>

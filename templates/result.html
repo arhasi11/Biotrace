@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Biotrace Result</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<div class="bg"></div>
+
+<div class="container">
+
+    <h1>🧬 Biotrace</h1>
+    <p>Prediction Result</p>
+
+    <!-- Uploaded Image -->
+    <img src="{{ filepath }}" class="preview">
+
+    <!-- Result -->
+    <div class="result-box">
+        <h2 class="result">{{ prediction }}</h2>
+        <p class="confidence">Confidence: {{ confidence }}%</p>
+    </div>
+
+    <!-- Button -->
+    <a href="/" class="back-btn">Try Another</a>
+
+</div>
+
+</body>
+</html>
