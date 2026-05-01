@@ -31,23 +31,32 @@ Biotrace is an AI-powered web application that analyzes fingerprint images to pr
 
 
 Biotrace/
-│── app.py / main.py
-│── preprocessing.py
-│── model/
-│ └── blood_group_model.h5
-│── dataset/
-│ └── train/
-│ ├── A/
-│ ├── B/
-│ ├── AB/
-│ └── O/
-│── static/
-│ ├── css/
-│ └── uploads/
-│── templates/
-│ ├── index.html
-│ ├── result.html
-│ └── register.html
+│
+├── main.py                # Flask app (or app.py)
+├── preprocessing.py      # Image preprocessing
+│
+├── model/
+│   └── blood_group_model.h5
+│
+├── dataset/
+│   └── train/
+│       ├── A/
+│       ├── B/
+│       ├── AB/
+│       └── O/
+│
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   └── uploads/
+│
+├── templates/
+│   ├── index.html
+│   ├── result.html
+│   └── register.html
+│
+├── requirements.txt
+└── README.md
 
 
 ---
