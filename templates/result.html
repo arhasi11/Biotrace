@@ -13,16 +13,31 @@
     <h1>🧬 Biotrace</h1>
     <p>Prediction Result</p>
 
-    <!-- Uploaded Image -->
-    <img src="{{ filepath }}" class="preview">
+    <!-- 🔥 Upload Message -->
+    <p class="message">✅ Image uploaded successfully</p>
 
-    <!-- Result -->
+    <!-- ✅ Show result ONLY if prediction exists -->
+    {% if prediction %}
     <div class="result-box">
-        <h2 class="result">{{ prediction }}</h2>
+        <h2 class="result">🩸 {{ prediction }}</h2>
         <p class="confidence">Confidence: {{ confidence }}%</p>
     </div>
+    {% endif %}
 
-    <!-- Button -->
+    <!-- 🔥 System Message -->
+    <p class="message">{{ message }}</p>
+
+    <!-- 🔥 REGISTER BUTTON -->
+    {% if show_register %}
+    <form action="/register_page" method="POST">
+        <input type="hidden" name="filename" value="{{ filename }}">
+        <button type="submit" class="back-btn" style="margin-top:15px;">
+            Register Fingerprint
+        </button>
+    </form>
+    {% endif %}
+
+    <!-- Back Button -->
     <a href="/" class="back-btn">Try Another</a>
 
 </div>

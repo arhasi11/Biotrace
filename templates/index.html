@@ -19,10 +19,11 @@
             <input type="file" name="file" id="fileInput" required>
         </label>
 
-        <!-- Image Preview -->
-        <img id="preview" class="preview" style="display:none;">
+        <!-- ✅ File selected message -->
+        <p id="filename" class="message"></p>
 
-        <button type="submit">Predict</button>
+        <!-- Predict Button -->
+        <button type="submit" id="predictBtn">Predict</button>
 
         <!-- Loader -->
         <div id="loader" style="display:none;">
@@ -35,26 +36,25 @@
 
 <script>
 const fileInput = document.getElementById("fileInput");
-const preview = document.getElementById("preview");
 const form = document.querySelector("form");
 const loader = document.getElementById("loader");
+const filenameText = document.getElementById("filename");
+const predictBtn = document.getElementById("predictBtn");
 
-// Preview
+// ✅ Show only filename message (NO IMAGE PREVIEW)
 fileInput.addEventListener("change", function() {
     const file = this.files[0];
+
     if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            preview.src = e.target.result;
-            preview.style.display = "block";
-        };
-        reader.readAsDataURL(file);
+        filenameText.textContent = "✅ File selected: " + file.name;
     }
 });
 
-// Loader
+// Loader + disable button
 form.addEventListener("submit", function() {
     loader.style.display = "block";
+    predictBtn.disabled = true;
+    predictBtn.innerText = "Processing...";
 });
 </script>
 

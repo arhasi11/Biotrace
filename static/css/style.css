@@ -144,3 +144,19 @@ button:hover {
 .back-btn:hover {
     transform: scale(1.05);
 }
+
+/* Message Styling */
+.message {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #facc15;
+    font-weight: 500;
+}
+
+.back-btn {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+}
+
+form .back-btn {
+    background: linear-gradient(135deg, #f59e0b, #facc15);
+}
